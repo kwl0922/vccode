@@ -1,0 +1,69 @@
+//P1320 压缩技术（续集版）
+#include<stdio.h>
+int main(){
+    char e,a[200];
+    int count=0,i=0,c=0,flag=0,b[1000],j=0,flag2=0;
+    scanf("%c",&e);
+    while(e!='\n'){
+        a[i++]=e;
+        scanf("%c",&e);
+        count++;
+    }
+    b[j++]=count;
+    for(i=0;i<count;i++){
+        if(flag==0){
+            if(a[i]=='0'){
+                c++;
+            }else{
+                b[j++]=c;
+                c=0;
+                flag=1;
+            }
+        }
+        if(flag==1){
+            if(a[i]=='1'){
+                c++;
+            }else{
+                b[j++]=c;
+                c=0;
+                flag=0;
+                i--;
+            }
+        }
+    }
+    for(i=0;i<(count+1)*(count-1);i++){
+        if(flag2==0){
+            scanf("%c",&e);
+        }else{
+            flag2=0;
+        }
+        if(e=='\n'){
+            continue;
+        }
+        if(flag==0){
+            if(e=='0'){
+                c++;
+            }else{
+                b[j++]=c;
+                c=0;
+                flag=1;
+            }
+        }
+        if(flag==1){
+            if(e=='1'){
+                c++;
+            }else{
+                b[j++]=c;
+                c=0;
+                flag=0;
+                i--;
+                flag2=1;
+            }
+        }
+    }
+    b[j++]=c;
+    for(i=0;i<j;i++){
+        printf("%d ",b[i]);
+    }
+    return 0;
+}
