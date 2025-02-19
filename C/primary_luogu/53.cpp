@@ -6,26 +6,18 @@ int main(){
     for(i=a;i<=b;i++){
         j=i;
         while(j/10>=0){
-            if(j%10==0){
-                c[0]++;
-            }else if(j%10==1){
-                c[1]++;
-            }else if(j%10==2){
-                c[2]++;
-            }else if(j%10==3){
-                c[3]++;
-            }else if(j%10==4){
-                c[4]++;
-            }else if(j%10==5){
-                c[5]++;
-            }else if(j%10==6){
-                c[6]++;
-            }else if(j%10==7){
-                c[7]++;
-            }else if(j%10==8){
-                c[8]++;
-            }else if(j%10==9){
-                c[9]++;
+            switch(j%10){
+                case 0:c[0]++;break;
+                case 1:c[1]++;break;
+                case 2:c[2]++;break;
+                case 3:c[3]++;break;
+                case 4:c[4]++;break;
+                case 5:c[5]++;break;
+                case 6:c[6]++;break;
+                case 7:c[7]++;break;
+                case 8:c[8]++;break;
+                case 9:c[9]++;break;
+                default:break;
             }
             j/=10;
             if(j==0){

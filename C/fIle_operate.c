@@ -1,7 +1,7 @@
 #include<stdio.h>
 //文件写入
 int main(){
-    FILE *fp=fopen("test.txt","w");
+    FILE *fp=fopen("test.lake","w");
     if (fp==NULL){
         printf("打开文件失败！\n");
         return 0;
