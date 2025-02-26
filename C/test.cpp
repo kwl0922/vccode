@@ -1,8 +1,7 @@
 #include<stdio.h>
 
 int main(){
-    int i=1,j;
-    j=(++i)+(++i);
-    printf("%d\n%d",i,j);
+    char a='1';
+    printf("%c",a);
     return 0;
 }
