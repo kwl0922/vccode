@@ -1,5 +1,8 @@
 import inverse_multiplication as inv_mul
-
+'''
+S盒的生成过程是：
+先求逆元，再将字节到位列向量，最后再从位列向量到字节
+'''
 a = 0x63#s盒的生成多项式
 s = [0] * 256#s记录每个数的乘法逆元,而后转化为s盒
 c = [0] * 8#记录a的每一位二进制数
@@ -30,14 +33,16 @@ for i in range(256):
 输出s盒，每行16个数，每个数之间用空格隔开，
 每个数为两位十六进制数，不足两位的用0补齐，字母大写
 '''
-print("S盒为:")
-for i in range(256):
-    if i % 16 == 0 and i != 0 and i != 256:
-        print()
+# print("S盒为:")
+# for i in range(256):
+#     if i % 16 == 0 and i != 0 and i != 256:
+#         print()
 
-    s[i] = s[i].replace('0x','').upper()
+#     s[i] = s[i].replace('0x','').upper()
 
-    if len(s[i]) == 1:
-        s[i] = '0' + s[i]
+#     if len(s[i]) == 1:
+#         s[i] = '0' + s[i]
 
-    print(s[i], end = ' ')#end = ' '表示不换行输出
+#     print(s[i], end = ' ')#end = ' '表示不换行输出
+def main():
+    return s
