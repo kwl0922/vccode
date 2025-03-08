@@ -45,5 +45,5 @@ for i in range(256):#求逆s盒中每个数的乘法逆元
 #         r_s[i] = '0' + r_s[i]
 
 #     print(r_s[i], end = ' ')#end = ' '表示不换行输出
-def main():
+def generate_r_s_box():
     return r_s

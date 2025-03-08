@@ -1,8 +1,8 @@
 import reverse_S_box as r_s, S_box as s
 
 #生成S盒与逆S盒
-rs = r_s.main()
-s = s.main()
+rs_box = r_s.generate_r_s_box()
+s_box = s.generate_s_box()
 
 #行移位变换
 

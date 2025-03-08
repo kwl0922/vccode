@@ -44,5 +44,5 @@ for i in range(256):
 #         s[i] = '0' + s[i]
 
 #     print(s[i], end = ' ')#end = ' '表示不换行输出
-def main():
+def generate_s_box():
     return s
