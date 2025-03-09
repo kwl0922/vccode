@@ -4,6 +4,7 @@ import r_row_shift as rrs, r_column_mix as r_c_m
 import format_print as f
 
 #明文plaintext = "ea04658583455d965c3398b0f02dadc5"
+#轮密钥round_key = "ac19285777fad15c66dc2900f321416a"
 #读取32个16进制明文字符串，即128位明文，存入长度为16的列表中
 def main():
     #生成S盒和逆S盒
@@ -12,11 +13,15 @@ def main():
 
     #读取明文
     plaintext = input("请输入明文：")
+    roundkey = input("请输入轮密钥：")
     array= []
-    for i in range(0, 32, 2):#将明文每两个字符存入数组中
+    key = []
+    for i in range(0, 32, 2):#将明文与密钥分别每两个字符存入数组中
         array.append(plaintext[i:i+2])
+        key.append(roundkey[i:i+2])
     for i in range(16):
         array[i] = array[i].upper()#将明文中的每个字符转化为大写
+        key[i] = key[i].upper()#将密钥中的每个字符转化为大写
     f.format_print(array)#未进行字节替代的明文
 
     #将明文中的每个字符转化为整型，并用S盒进行字节替代
@@ -32,5 +37,5 @@ def main():
     c_m.column_mix(array)
 
     #正向轮密钥加变换
-    #r_k_a.round_key_add(array)
+    r_k_a.round_key_add(array, key)
 main()
