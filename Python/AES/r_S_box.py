@@ -27,22 +27,19 @@ for i in range(256):
         if res[j] & 1:
             r_s[i] = r_s[i] + 2**j
 
-for i in range(256):#求逆s盒中每个数的乘法逆元
-    r_s[i] = hex(inv_mul.main(r_s[i]))
-
 '''
 输出逆S盒，每行16个数，每个数之间用空格隔开，
 每个数为两位十六进制数，不足两位的用0补齐，字母大写
 '''
 # print("逆S盒为:")
-# for i in range(256):
-#     if i % 16 == 0 and i != 0 and i != 256:
-#         print()
+for i in range(256):
+    # if i % 16 == 0 and i != 0 and i != 256:
+    #     print()
+    r_s[i] = hex(inv_mul.main(r_s[i]))
+    r_s[i] = r_s[i].replace('0x','').upper()
 
-#     r_s[i] = r_s[i].replace('0x','').upper()
-
-#     if len(r_s[i]) == 1:
-#         r_s[i] = '0' + r_s[i]
+    if len(r_s[i]) == 1:
+        r_s[i] = '0' + r_s[i]
 
 #     print(r_s[i], end = ' ')#end = ' '表示不换行输出
 def generate_r_s_box():

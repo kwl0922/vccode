@@ -28,20 +28,19 @@ for i in range(256):
         if res[j] & 1:
             s[i] = s[i] + 2**j
 
-    s[i] = hex(s[i])
 '''
 输出s盒，每行16个数，每个数之间用空格隔开，
 每个数为两位十六进制数，不足两位的用0补齐，字母大写
 '''
 # print("S盒为:")
-# for i in range(256):
-#     if i % 16 == 0 and i != 0 and i != 256:
-#         print()
+for i in range(256):
+    # if i % 16 == 0 and i != 0 and i != 256:
+    #     print()
+    s[i] = hex(s[i])
+    s[i] = s[i].replace('0x','').upper()
 
-#     s[i] = s[i].replace('0x','').upper()
-
-#     if len(s[i]) == 1:
-#         s[i] = '0' + s[i]
+    if len(s[i]) == 1:
+        s[i] = '0' + s[i]
 
 #     print(s[i], end = ' ')#end = ' '表示不换行输出
 def generate_s_box():
