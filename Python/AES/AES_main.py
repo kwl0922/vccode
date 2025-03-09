@@ -1,5 +1,6 @@
 import S_box as s, r_S_box as r_s
 import row_shift as rs, column_mix as c_m, round_key_add as r_k_a
+import r_row_shift as rrs, r_column_mix as r_c_m
 import format_print as f
 
 #明文plaintext = "ea04658583455d965c3398b0f02dadc5"
@@ -31,5 +32,5 @@ def main():
     c_m.column_mix(array)
 
     #正向轮密钥加变换
-    r_k_a.round_key_add(array)
+    #r_k_a.round_key_add(array)
 main()
