@@ -59,7 +59,9 @@ def main():
         for i in range(16):
             array[i] = array[i].upper()#将明文中的每个字符转化为大写
             key[i] = key[i].upper()#将密钥中的每个字符转化为大写
+
         keys = g_r_k.generate_round_key(key, rounds)#生成10轮的轮密钥
+        
         if choice == "1":#加密
             ec.encrypt(array, keys, rounds)
         else:#解密
