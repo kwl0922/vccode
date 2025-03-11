@@ -1,7 +1,10 @@
 import encrypt as ec, decrypt as dc, format_print as f
-#明文plaintext = "0123456789abcdeffedcba9876543210"
-#密钥round_key = "0f1571c947d9e8590cb7add6af7f6798"
-#密文ciphertext = "d91d4957557ac7cdfb7f6cb74d80576b"
+
+'''
+明文plaintext = "0123456789abcdeffedcba9876543210"
+密钥round_key = "0f1571c947d9e8590cb7add6af7f6798"
+密文ciphertext = "d91d4957557ac7cdfb7f6cb74d80576b"
+'''
 
 def main():
     print("AES-128加密算法")
