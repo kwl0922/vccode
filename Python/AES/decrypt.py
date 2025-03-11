@@ -24,4 +24,4 @@ def decrypt(array, keys, rounds):
         if len(array[i]) == 1:
             array[i] = '0' + array[i]
         plaintext = plaintext + array[i].lower()
-    print("解密的明文：", plaintext)
+    print("解密的明文：" + plaintext)

@@ -28,4 +28,4 @@ def encrypt(array, keys, rounds):
         if len(array[i]) == 1:
             array[i] = '0' + array[i]
         code = code + array[i].lower()
-    print("加密的密文：", code)
+    print("加密的密文：" + code)
