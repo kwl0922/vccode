@@ -1,4 +1,4 @@
-import swap as s, format_print as f
+import swap as s
 
 #逆向行移位变换
 def r_row_shift(array):
@@ -16,4 +16,3 @@ def r_row_shift(array):
     for i in range(13, 16):
         array[i-1] = array[i]
     array[15] = temp
-    f.format_print(array)#行移位变换后的明文

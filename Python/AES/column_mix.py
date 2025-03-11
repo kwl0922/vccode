@@ -1,5 +1,4 @@
 import inverse_multiplication as i_m
-import format_print as f
 
 #列混淆变换
 def column_mix(array):
@@ -17,4 +16,3 @@ def column_mix(array):
             array[i] = i_m.multiply(0x03, asist[i-3*4]) ^ asist[i-2*4] ^ asist[i-1*4] ^ i_m.multiply(0x02, asist[i])
         array[i] = hex(array[i])#将结果转化为16进制，方便格式化输出
         array[i] = array[i].replace('0x', '').upper()
-    f.format_print(array)#列混淆变换后的明文
