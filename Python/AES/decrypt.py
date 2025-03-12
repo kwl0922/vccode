@@ -21,7 +21,7 @@ def decrypt(array, keys, rounds):
 
     plaintext = str()
     for i in range(16):
-        if len(array[i]) == 1:
-            array[i] = '0' + array[i]
-        plaintext = plaintext + array[i].lower()
+        array[i] = chr(int(array[i], 16))  # 转为ascii码
+        print(array[i])
+        plaintext = plaintext + array[i]
     print("解密的明文：" + plaintext)

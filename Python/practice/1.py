@@ -2,6 +2,8 @@
 """
 多行注释符
 """
+data = "Hello, world!"
+print(data)
 print("Hello world!")
 a = 10
 b = 20
