@@ -25,10 +25,7 @@ def encrypt(array, keys, rounds):
 
     code = str()
     for i in range(16):
-        # if len(array[i]) == 1:
-        #     array[i] = '0' + array[i]
-        print(array[i])
-        array[i] = chr(int(array[i], 16))#转为ascii码
-        print(array[i])
+        if len(array[i]) == 1:
+            array[i] = '0' + array[i]
         code = code + array[i]
     print("加密的密文：" + code)
