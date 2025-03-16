@@ -1,12 +1,16 @@
-import format_print as f, S_box as s
+import format_print as f, S_box as s, inverse_multiplication as im
 #生成轮密钥
 
 def generate_round_key(key, rounds):#key是密钥，rounds是轮数
     #生成S盒
     s_box = s.generate_s_box()
     keys = []#存放所有轮密钥
-    #轮常量
-    round_constant = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36]
+    round_constant = [0] * rounds#轮常量
+    round_constant[0] = 0x01
+    #通过GF(2^8)的乘法生成轮常量
+    for i in range(1, rounds):
+        round_constant[i] = im.multiply(0x02, round_constant[i - 1])
+
     keys[0:16] = key
     for round in range(rounds):
         #翻转数组，为了与p126的例子保持一致

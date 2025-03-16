@@ -34,6 +34,15 @@ def main():
                 array.append(plaintext[i:i+2])
 
         round_key = input("请输入密钥：")
+        if len(round_key) != 16:
+            print("密钥长度错误，请重新输入！")
+            main()
+        for i in range(16):
+            if round_key[i] == '0' or round_key[i] == '1' or round_key[i] == '2' or round_key[i] == '3' or round_key[i] == '4' or round_key[i] == '5' or round_key[i] == '6' or round_key[i] == '7' or round_key[i] == '8' or round_key[i] == '9' or round_key[i] == 'A' or round_key[i] == 'B' or round_key[i] == 'C' or round_key[i] == 'D' or round_key[i] == 'E' or round_key[i] == 'F':
+                continue
+            else:
+                print("密钥格式错误，请重新输入！格式范围为0-9，a-f")
+                main()
         
         key = []
         for i in range(16):#将明文与密钥分别每两个字符存入数组中
@@ -43,7 +52,7 @@ def main():
         #由行排序转换为列排序
         f.row_to_column(array)
         f.row_to_column(key)
-        
+
         rounds = 10#加解密轮数
         for i in range(16):
             array[i] = array[i].upper()#将明文中的每个字符转化为大写

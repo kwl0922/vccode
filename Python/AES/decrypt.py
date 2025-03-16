@@ -23,4 +23,20 @@ def decrypt(array, keys, rounds):
     for i in range(16):
         array[i] = chr(int(array[i], 16))  # 转为ascii码
         plaintext = plaintext + array[i]
-    print("解密的明文：" + plaintext)
+    return plaintext
+
+def rounds_decrypt(code, keys, rounds):#按明文长度加密
+    plain_text = str()
+    length = len(code)
+    fill = int(code[-2:], 16)#填充位数，加在密文末尾，用于计算填充位数
+    code = code[:-2]#去掉填充位
+    block = length // 32#密文块数
+
+    for i in range(block):
+        array = []
+        for j in range(0, 32, 2):
+            array.append(code[i*32+j:i*32+j+2])
+        f.row_to_column(array)
+        plain_text = plain_text + decrypt(array, keys, rounds)
+    plain_text = plain_text[:-fill]#去掉填充位
+    print("解密的明文：" + plain_text)
